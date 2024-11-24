@@ -24,5 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* في حالة مفيش راوت في الويب يروح ل فيو */
 Route::get('/{pathMatch}', function () {
-    return view('welcome');
+    return view('app');
 })->where('pathMatch', ".*");

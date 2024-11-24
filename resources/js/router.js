@@ -1,11 +1,24 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Import your components
-import Home from "./components/Home.vue";
-import About from "./components/About.vue";
-import ExampleComponent from "./components/ExampleComponent.vue";
+import Home from "./views/Home.vue";
+import About from "./views/About.vue";
+import ExampleComponent from "./views/ExampleComponent.vue";
+import DashboardLayout from "./components/DashboardLayout.vue";
+import DashboardHome from "./views/DashboardHome.vue";
 
 const routes = [
+    {
+        path: "/admin",
+        component: DashboardLayout,
+        children: [
+            {
+                path: "",
+                name: "DashboardHome",
+                component: DashboardHome, // A child component for the dashboard's main content
+            },
+        ],
+    },
     {
         path: "/",
         name: "Home",
