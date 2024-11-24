@@ -22,6 +22,7 @@
     <link href="/dashboard/assets/css-rtl/skin-modes.css" rel="stylesheet" />
 </head>
 
+{{-- tset --}}
 <body class="main-body app sidebar-mini dark-theme">
     <div id="app"></div>
     <script src="/dashboard/assets/plugins/jquery/jquery.min.js"></script>
