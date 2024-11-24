@@ -9,7 +9,7 @@ import DashboardHome from "./views/DashboardHome.vue";
 
 const routes = [
     {
-        path: "/admin",
+        path: "/",
         component: DashboardLayout,
         children: [
             {
@@ -17,18 +17,19 @@ const routes = [
                 name: "DashboardHome",
                 component: DashboardHome, // A child component for the dashboard's main content
             },
+            {
+                path: "/home",
+                name: "Home",
+                component: Home,
+            },
+            {
+                path: "/about",
+                name: "About",
+                component: About,
+            },
         ],
     },
-    {
-        path: "/",
-        name: "Home",
-        component: Home,
-    },
-    {
-        path: "/about",
-        name: "About",
-        component: About,
-    },
+
     {
         path: "/:pathMatch(.*)*",
         component: ExampleComponent,
