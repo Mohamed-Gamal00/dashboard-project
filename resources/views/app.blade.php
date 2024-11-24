@@ -23,6 +23,10 @@
 </head>
 
 <body class="main-body app sidebar-mini dark-theme">
+    <!-- Loader -->
+    <div id="global-loader">
+        <img src="/dashboard/assets/img/loader.svg" class="loader-img" alt="Loader" />
+    </div>
     <div id="app"></div>
     <script src="/dashboard/assets/plugins/jquery/jquery.min.js"></script>
     <script src="/dashboard/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -48,10 +52,7 @@
     <script src="/dashboard/assets/js/sticky.js"></script>
     <script src="/dashboard/assets/js/modal-popup.js"></script>
     <script src="/dashboard/assets/plugins/side-menu/sidemenu.js"></script>
-    <script src="/dashboard/assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="/dashboard/assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
     <script src="/dashboard/assets/js/index-dark.js"></script>
-    <script src="/dashboard/assets/js/apexcharts.js"></script>
     <script src="/dashboard/assets/js/custom.js"></script>
     <script src="/dashboard/assets/js/jquery.vmap.sampledata.js"></script>
 

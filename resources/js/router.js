@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import ExampleComponent from "./views/ExampleComponent.vue";
-import DashboardLayout from "./components/DashboardLayout.vue";
+import DashboardLayout from "./views/DashboardLayout.vue";
 import DashboardHome from "./views/DashboardHome.vue";
 
 const routes = [

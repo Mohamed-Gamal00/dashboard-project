@@ -22,7 +22,7 @@ $(function() {
 		}
 		}
 	};
-	
+
 	/* Dashboard content */
 	$('#compositeline').sparkline('html', {
 		lineColor: 'rgba(255, 255, 255, 0.6)',
@@ -85,98 +85,11 @@ $(function() {
 		disableTooltips: true
 	});
 	/* Dashboard content closed*/
-	
-	
-	/* Apexcharts (#bar) */
-	var optionsBar = {
-	  chart: {
-		height: 249,
-		type: 'bar',
-		toolbar: {
-		   show: false,
-		},
-		fontFamily: 'Nunito, sans-serif',
-		// dropShadow: {
-		//   enabled: true,
-		//   top: 1,
-		//   left: 1,
-		//   blur: 2,
-		//   opacity: 0.2,
-		// }
-	  },
-	 colors: ["#036fe7", '#f93a5a', '#f7a556'],
-	 plotOptions: {
-				bar: {
-				  dataLabels: {
-					enabled: false
-				  },
-				  columnWidth: '42%',
-				  endingShape: 'rounded',
-				}
-			},
-	  dataLabels: {
-		  enabled: false
-	  },
-	  stroke: {
-		  show: true,
-		  width: 2,
-		  endingShape: 'rounded',
-		  colors: ['transparent'],
-	  },
-	  responsive: [{
-		  breakpoint: 576,
-		  options: {
-			   stroke: {
-			  show: true,
-			  width: 1,
-			  endingShape: 'rounded',
-			  colors: ['transparent'],
-			},
-		  },
-		  
-		  
-	  }],
-	   series: [{
-		  name: 'Impressions',
-		  data: [74, 85, 57, 56, 76, 35, 61, 98, 36 , 50, 48, 29, 57]
-	  }, {
-		  name: 'Turnover',
-		  data: [46, 35, 101, 98, 44, 55, 57, 56, 55 ,34, 79, 46,76]
-	  }, {
-		  name: 'In progress',
-		  data: [26, 35, 41, 78, 34, 65, 27, 46, 37, 65, 49, 23,49]
-	  }],
-	  xaxis: {
-		  categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-	  },
-	  fill: {
-		  opacity: 1
-	  },
-	  legend: {
-		show: false,
-		floating: true,
-		position: 'top',
-		horizontalAlign: 'left',
-		// offsetY: -36
 
-	  },
-	  // title: {
-	  //   text: 'Financial Information',
-	  //   align: 'left',
-	  // },
-	  tooltip: {
-		  y: {
-			  formatter: function (val) {
-				  return "$ " + val + " thousands"
-			  }
-		  }
-	  }
-	}
-	new ApexCharts(document.querySelector('#bar'), optionsBar).render();
-	
-	/* Apexcharts (#bar) closed */
-	
-	
+
+
+
+
 	/*--- Apex (#chart) ---*/
 	var options = {
 		series: [17],
@@ -193,10 +106,10 @@ $(function() {
 		size: 120,
 		 imageWidth: 50,
               imageHeight: 50,
-			  
-		 track: {	
-		 strokeWidth: "80%",	
-		 background: '#141b2d',	
+
+		 track: {
+		 strokeWidth: "80%",
+		 background: '#141b2d',
 		},
 		 dropShadow: {
                 enabled: false,
@@ -212,8 +125,8 @@ $(function() {
 			color: '#fff',
 			offsetY: 30,
 		  },
-		  hollow: {	
-			 size: "60%"	
+		  hollow: {
+			 size: "60%"
 			},
 		  value: {
 			offsetY: -10,
@@ -243,17 +156,15 @@ $(function() {
 	stroke: {
 	  dashArray: 4
 	},
-   series: [83],	
+   series: [83],
 		labels: [""],
 		color:'#fff',
 	};
 
-	var chart = new ApexCharts(document.querySelector("#chart"), options);
-	chart.render();
-	/*--- Apex (#chart)closed ---*/
-	
-	
-	
+
+
+
+
 	/*--- Apex (#spark1) ---*/
 	var spark1 = {
     chart: {
@@ -307,7 +218,7 @@ $(function() {
 	  }
 	}
 	/*--- Apex (#spark1) closed ---*/
-	
+
 	/*--- Apex (#spark2) ---*/
 	var spark2 = {
 	  chart: {
@@ -360,7 +271,7 @@ $(function() {
 	  }
 	}
 	/*--- Apex (#spark2) closed ---*/
-	
+
 	/*--- Apex (#spark3) ---*/
 	var spark3 = {
 	  chart: {
@@ -418,7 +329,7 @@ $(function() {
 	  }
 	}
 	/*--- Apex (#spark3) closed ---*/
-	
+
 	/*--- Apex (#spark4) ---*/
 
 	var spark4 = {
@@ -477,7 +388,7 @@ $(function() {
 	  }
 	}
 	/*--- Apex (#spark4) closed ---*/
-	
+
 	/*--- Apex (#spark5) ---*/
 	var spark5 = {
 	  chart: {
@@ -536,36 +447,6 @@ $(function() {
 	}
 
 
-	new ApexCharts(document.querySelector("#spark1"), spark1).render();
-	new ApexCharts(document.querySelector("#spark2"), spark2).render();
-	new ApexCharts(document.querySelector("#spark3"), spark3).render();
-	new ApexCharts(document.querySelector("#spark4"), spark4).render();
-	new ApexCharts(document.querySelector("#spark5"), spark5).render();
-	
-	/*--- Apex (#spark5) closed ---*/
-	
-	
-	/*--- Map ---*/
-	$('#vmap2').vectorMap({
-		map: 'usa_en',
-		showTooltip: true,
-		backgroundColor: '#fff',
-		color: '#60adff',
-		colors: {
-			mo: '#9fceff',
-			fl: '#60adff',
-			or: '#409cff',
-			ca: '#005cbf',
-			tx: '#005cbf',
-			wy: '#005cbf',
-			ny: '#007bff'
-		},
-		hoverColor: '#222',
-		enableZoom: false,
-		borderWidth: 1,
-		borderColor: '#fff',
-		hoverOpacity: .85
-	});
-	/*--- Map closed ---*/
-	
+
+
 });
