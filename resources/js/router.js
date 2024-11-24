@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Import your components
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
-import ExampleComponent from "./views/ExampleComponent.vue";
+import Home from "./views/home/Home.vue";
+import About from "./views/home/About.vue";
+import ExampleComponent from "./views/Error404.vue";
 import DashboardLayout from "./views/DashboardLayout.vue";
-import DashboardHome from "./views/DashboardHome.vue";
+import DashboardHome from "./views/home/DashboardHome.vue";
 
 const routes = [
     {

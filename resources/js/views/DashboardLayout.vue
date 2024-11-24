@@ -16,7 +16,7 @@
             </div>
 
             <!-- Page Content -->
-            <div class="container-fluid">
+            <div class="container-fluid mt-5">
                 <router-view />
             </div>
         </div>
@@ -61,10 +61,6 @@ export default {
     },
 };
 </script>
-
-
-
-
 
 <style>
 /* Include styles specific to this component here if needed */
