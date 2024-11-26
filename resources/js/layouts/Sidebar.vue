@@ -95,11 +95,6 @@
                             Home
                         </router-link>
                     </li>
-                    <li>
-                        <router-link class="slide-item" to="/about">
-                            About
-                        </router-link>
-                    </li>
                 </ul>
             </li>
         </ul>

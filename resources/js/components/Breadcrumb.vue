@@ -24,6 +24,10 @@
                         <span v-else class="content-title mb-0 my-auto">
                             {{ crumb.label }}
                         </span>
+
+                        <!-- <span class="content-title mb-0 my-auto">
+                            {{ crumb.label }}
+                        </span> -->
                         <span
                             v-if="index < breadcrumbs.length - 1"
                             class="text-muted mt-1 tx-13 mx-1 mb-0"
@@ -43,15 +47,15 @@ export default {
     props: {
         title: {
             type: String,
-            required: true,
+            required: null,
         },
         subtitle: {
             type: String,
-            required: true,
+            required: null,
         },
         breadcrumbs: {
             type: Array,
-            required: true,
+            required: null,
             default: () => [],
         },
     },
