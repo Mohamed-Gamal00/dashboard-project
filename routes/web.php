@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* في حالة مفيش راوت في الويب يروح ل فيو */
+
 Route::get('/{pathMatch}', function () {
     return view('app');
 })->where('pathMatch', ".*");

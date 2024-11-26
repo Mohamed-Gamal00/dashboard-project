@@ -16,7 +16,7 @@
             </div>
 
             <!-- Page Content -->
-            <div class="container-fluid mt-5">
+            <div class="container-fluid">
                 <router-view />
             </div>
         </div>
