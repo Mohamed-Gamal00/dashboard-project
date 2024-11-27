@@ -37,15 +37,30 @@
                             <div class="main-card-signin d-md-flex">
                                 <div class="wd-100p">
                                     <div class="main-signin-header">
-                                        <h2>Forgot Password!</h2>
-                                        <h4>Please Enter Your Email</h4>
-                                        <form action="#">
+                                        <h2>Login</h2>
+                                        <form @submit.prevent="login">
                                             <div class="form-group">
                                                 <label>Email</label>
                                                 <input
                                                     class="form-control"
                                                     placeholder="Enter your email"
+                                                    v-model="email"
                                                     type="text"
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <label for="password"
+                                                    >Password</label
+                                                >
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    placeholder="Enter your password"
+                                                    id="password"
+                                                    v-model="password"
+                                                    required
                                                 />
                                             </div>
                                             <button
@@ -55,13 +70,13 @@
                                             </button>
                                         </form>
                                     </div>
-                                    <div class="main-signup-footer mg-t-20">
+                                    <!-- <div class="main-signup-footer mg-t-20">
                                         <p>
                                             Forget it,
                                             <a href="#"> Send me back</a> to the
                                             sign in screen.
                                         </p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
