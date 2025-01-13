@@ -5,153 +5,138 @@
  * Licensed under MIT
  * ======================================================================== */
 
-+(function ($) {
-    "use strict";
++function ($) {
+  'use strict';
 
-    // SIDEBAR PUBLIC CLASS DEFINITION
-    // ================================
+  // SIDEBAR PUBLIC CLASS DEFINITION
+  // ================================
 
-    var Sidebar = function (element, options) {
-        this.$element = $(element);
-        this.options = $.extend({}, Sidebar.DEFAULTS, options);
-        this.transitioning = null;
+  var Sidebar = function (element, options) {
+    this.$element      = $(element)
+    this.options       = $.extend({}, Sidebar.DEFAULTS, options)
+    this.transitioning = null
 
-        if (this.options.parent) this.$parent = $(this.options.parent);
-        if (this.options.toggle) this.toggle();
-    };
+    if (this.options.parent) this.$parent = $(this.options.parent)
+    if (this.options.toggle) this.toggle()
+  }
 
-    Sidebar.DEFAULTS = {
-        toggle: true,
-    };
+  Sidebar.DEFAULTS = {
+    toggle: true
+  }
 
-    Sidebar.prototype.show = function () {
-        if (this.transitioning || this.$element.hasClass("sidebar-open"))
-            return;
+  Sidebar.prototype.show = function () {
+    if (this.transitioning || this.$element.hasClass('sidebar-open')) return
 
-        var startEvent = $.Event("show.bs.sidebar");
-        this.$element.trigger(startEvent);
-        if (startEvent.isDefaultPrevented()) return;
 
-        this.$element.addClass("sidebar-open");
+    var startEvent = $.Event('show.bs.sidebar')
+    this.$element.trigger(startEvent);
+    if (startEvent.isDefaultPrevented()) return
 
-        this.transitioning = 1;
+    this.$element
+      .addClass('sidebar-open')
 
-        var complete = function () {
-            this.$element;
-            this.transitioning = 0;
-            this.$element.trigger("shown.bs.sidebar");
-        };
+    this.transitioning = 1
 
-        if (!$.support.transition) return complete.call(this);
+    var complete = function () {
+      this.$element
+      this.transitioning = 0
+      this.$element.trigger('shown.bs.sidebar')
+    }
 
-        this.$element
-            .one($.support.transition.end, $.proxy(complete, this))
-            .emulateTransitionEnd(400);
-    };
+    if(!$.support.transition) return complete.call(this)
 
-    Sidebar.prototype.hide = function () {
-        if (this.transitioning || !this.$element.hasClass("sidebar-open"))
-            return;
+    this.$element
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(400)
+  }
 
-        var startEvent = $.Event("hide.bs.sidebar");
-        this.$element.trigger(startEvent);
-        if (startEvent.isDefaultPrevented()) return;
+  Sidebar.prototype.hide = function () {
+    if (this.transitioning || !this.$element.hasClass('sidebar-open')) return
 
-        this.$element.removeClass("sidebar-open");
+    var startEvent = $.Event('hide.bs.sidebar')
+    this.$element.trigger(startEvent)
+    if(startEvent.isDefaultPrevented()) return
 
-        this.transitioning = 1;
+    this.$element
+      .removeClass('sidebar-open')
 
-        var complete = function () {
-            this.transitioning = 0;
-            this.$element.trigger("hidden.bs.sidebar");
-        };
+    this.transitioning = 1
 
-        if (!$.support.transition) return complete.call(this);
+    var complete = function () {
+      this.transitioning = 0
+      this.$element
+        .trigger('hidden.bs.sidebar')
+    }
 
-        this.$element
-            .one($.support.transition.end, $.proxy(complete, this))
-            .emulateTransitionEnd(400);
-    };
+    if (!$.support.transition) return complete.call(this)
 
-    Sidebar.prototype.toggle = function () {
-        this[this.$element.hasClass("sidebar-open") ? "hide" : "show"]();
-    };
+    this.$element
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(400)
+  }
 
-    var old = $.fn.sidebar;
+  Sidebar.prototype.toggle = function () {
+    this[this.$element.hasClass('sidebar-open') ? 'hide' : 'show']()
+  }
 
-    $.fn.sidebar = function (option) {
-        return this.each(function () {
-            var $this = $(this);
-            var data = $this.data("bs.sidebar");
-            var options = $.extend(
-                {},
-                Sidebar.DEFAULTS,
-                $this.data(),
-                typeof options == "object" && option
-            );
+  var old = $.fn.sidebar
 
-            if (!data && options.toggle && option == "show") option = !option;
-            if (!data)
-                $this.data("bs.sidebar", (data = new Sidebar(this, options)));
-            if (typeof option == "string") data[option]();
-        });
-    };
+  $.fn.sidebar = function (option) {
+    return this.each(function (){
+      var $this = $(this)
+      var data = $this.data('bs.sidebar')
+      var options = $.extend({}, Sidebar.DEFAULTS, $this.data(), typeof options == 'object' && option)
 
-    $.fn.sidebar.Constructor = Sidebar;
+      if (!data && options.toggle && option == 'show') option = !option
+      if (!data) $this.data('bs.sidebar', (data = new Sidebar(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
 
-    $.fn.sidebar.noConflict = function () {
-        $.fn.sidebar = old;
-        return this;
-    };
+  $.fn.sidebar.Constructor = Sidebar
 
-    $(document).on(
-        "click.bs.sidebar.data-api",
-        '[data-toggle="sidebar-left"]',
-        function (e) {
-            var $this = $(this),
-                href;
-            var target =
-                $this.attr("data-target") ||
-                e.preventDefault() ||
-                ((href = $this.attr("href")) &&
-                    href.replace(/.*(?=#[^\s]+$)/, ""));
-            var $target = $(target);
-            var data = $target.data("bs.sidebar");
-            var option = data ? "toggle" : $this.data();
+  $.fn.sidebar.noConflict = function () {
+    $.fn.sidebar = old
+    return this
+  }
 
-            $target.sidebar(option);
+  $(document).on('click.bs.sidebar.data-api', '[data-toggle="sidebar-left"]', function (e) {
+    var $this = $(this), href
+    var target = $this.attr('data-target')
+        || e.preventDefault()
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')
+    var $target = $(target)
+    var data = $target.data('bs.sidebar')
+    var option = data ? 'toggle' : $this.data()
+
+    $target.sidebar(option)
+  })
+
+  $('html').on('click.bs.sidebar.autohide', function(event){
+    var $this = $(event.target);
+    var isButtonOrSidebar = $this.is('.sidebar, [data-toggle="sidebar-left"]') || $this.parents('.sidebar, [data-toggle="sidebar-left"]').length;
+    if (isButtonOrSidebar) {
+      return;
+    } else {
+      var $target = $('.sidebar');
+      $target.each(function(i, trgt) {
+        var $trgt = $(trgt);
+        if($trgt.data('bs.sidebar') && $trgt.hasClass('sidebar-open')) {
+            $trgt.sidebar('hide');
         }
-    );
-
-    $("html").on("click.bs.sidebar.autohide", function (event) {
-        var $this = $(event.target);
-        var isButtonOrSidebar =
-            $this.is('.sidebar, [data-toggle="sidebar-left"]') ||
-            $this.parents('.sidebar, [data-toggle="sidebar-left"]').length;
-        if (isButtonOrSidebar) {
-            return;
-        } else {
-            var $target = $(".sidebar");
-            $target.each(function (i, trgt) {
-                var $trgt = $(trgt);
-                if (
-                    $trgt.data("bs.sidebar") &&
-                    $trgt.hasClass("sidebar-open")
-                ) {
-                    $trgt.sidebar("hide");
-                }
-            });
-        }
-    });
-
-    $(document).on("click", ".sidebar-remove", function (event) {
-        event.preventDefault();
-        $(".sidebar").removeClass("sidebar-open");
-    });
-
-    // // ______________ PerfectScrollbar
-    // const ps1 = new PerfectScrollbar('.sidebar-left', {
-    // 	useBothWheelAxes:false,
-    // 	suppressScrollX:false,
-    // });
-})(jQuery);
+      })
+    }
+  });
+   
+   $(document).on('click', '.sidebar-remove', function(event) {
+	   event.preventDefault();
+		$('.sidebar').removeClass('sidebar-open');	   
+	});
+	
+	
+	// ______________ PerfectScrollbar	
+	const ps1 = new PerfectScrollbar('.sidebar-left', {
+		useBothWheelAxes:false,
+		suppressScrollX:false,
+	});
+}(jQuery);

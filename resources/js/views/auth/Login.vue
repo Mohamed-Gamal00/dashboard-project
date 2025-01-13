@@ -24,12 +24,13 @@
                     <div class="row">
                         <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
                             <div class="mb-5 d-flex">
-                                <a href="index.html"
-                                    ><img
+                                <a href="index.html">
+                                    <img
                                         src="/dashboard/assets/img/brand/favicon.png"
                                         class="sign-favicon ht-40"
                                         alt="logo"
-                                /></a>
+                                    />
+                                </a>
                                 <h1 class="main-logo1 mr-1 mr-0 my-auto tx-28">
                                     Va<span>le</span>x
                                 </h1>
@@ -65,18 +66,21 @@
                                             </div>
                                             <button
                                                 class="btn btn-main-primary btn-block"
+                                                :disabled="loading"
                                             >
-                                                Send
+                                                <span v-if="loading"
+                                                    >Loading...</span
+                                                >
+                                                <span v-else>Send</span>
                                             </button>
                                         </form>
                                     </div>
-                                    <!-- <div class="main-signup-footer mg-t-20">
-                                        <p>
-                                            Forget it,
-                                            <a href="#"> Send me back</a> to the
-                                            sign in screen.
-                                        </p>
-                                    </div> -->
+                                    <div
+                                        v-if="error"
+                                        class="alert alert-danger mt-3"
+                                    >
+                                        {{ error }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -90,9 +94,40 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    mounted() {
-        console.log("Component mounted.");
+    data() {
+        return {
+            email: "",
+            password: "",
+            loading: false,
+            error: null,
+        };
+    },
+    methods: {
+        async login() {
+            this.loading = true;
+            this.error = null;
+            try {
+                const response = await axios.post("/api/v1/login", {
+                    email: this.email,
+                    password: this.password,
+                });
+
+                // Save the token (localStorage or Vuex)
+                const token = response.data.token;
+                localStorage.setItem("auth_token", token);
+
+                // Redirect to the admin dashboard
+                this.$router.push("/");
+            } catch (err) {
+                this.error =
+                    err.response?.data?.message ||
+                    "An error occurred. Please try again.";
+            } finally {
+                this.loading = false;
+            }
+        },
     },
 };
 </script>
