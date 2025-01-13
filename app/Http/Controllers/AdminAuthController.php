@@ -43,4 +43,16 @@ class AdminAuthController extends Controller
             'message' => 'Invalid email or password.',
         ], 401);
     }
+
+    public function logout(Request $request)
+    {
+        // return $request->user();
+        if ($request->user()) {
+            $request->user()->currentAccessToken()->delete();
+            return response()->json(['message' => 'Logged out successfully'], 200);
+        }
+
+        // Handle cases where the user is not authenticated
+        return response()->json(['message' => 'No authenticated user found'], 401);
+    }
 }

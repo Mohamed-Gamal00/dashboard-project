@@ -47,90 +47,7 @@
             </div>
         </div>
         <div class="main-header-right">
-            <ul class="nav">
-                <li class="">
-                    <div class="dropdown nav-itemd-none d-md-flex">
-                        <a
-                            href="#"
-                            class="d-flex nav-item nav-link pl-0 country-flag1"
-                            data-toggle="dropdown"
-                            aria-expanded="false"
-                        >
-                            <span
-                                class="avatar country-Flag mr-0 align-self-center bg-transparent"
-                                ><img
-                                    src="/dashboard/assets/img/flags/us_flag.jpg"
-                                    alt="img"
-                            /></span>
-                            <div class="my-auto">
-                                <strong class="mr-2 ml-2 my-auto"
-                                    >English</strong
-                                >
-                            </div>
-                        </a>
-                        <div
-                            class="dropdown-menu dropdown-menu-left dropdown-menu-arrow"
-                            x-placement="bottom-end"
-                        >
-                            <a href="#" class="dropdown-item d-flex">
-                                <span
-                                    class="avatar ml-3 align-self-center bg-transparent"
-                                    ><img
-                                        src="/dashboard/assets/img/flags/french_flag.jpg"
-                                        alt="img"
-                                /></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">French</span>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item d-flex">
-                                <span
-                                    class="avatar ml-3 align-self-center bg-transparent"
-                                    ><img
-                                        src="/dashboard/assets/img/flags/germany_flag.jpg"
-                                        alt="img"
-                                /></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">Germany</span>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item d-flex">
-                                <span
-                                    class="avatar ml-3 align-self-center bg-transparent"
-                                    ><img
-                                        src="/dashboard/assets/img/flags/italy_flag.jpg"
-                                        alt="img"
-                                /></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">Italy</span>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item d-flex">
-                                <span
-                                    class="avatar ml-3 align-self-center bg-transparent"
-                                    ><img
-                                        src="/dashboard/assets/img/flags/russia_flag.jpg"
-                                        alt="img"
-                                /></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">Russia</span>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item d-flex">
-                                <span
-                                    class="avatar ml-3 align-self-center bg-transparent"
-                                    ><img
-                                        src="/dashboard/assets/img/flags/spain_flag.jpg"
-                                        alt="img"
-                                /></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">spain</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+
             <div class="nav nav-item navbar-nav-right ml-auto">
                 <div class="nav-link" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form" role="search">
@@ -232,95 +149,6 @@
                                     </p>
                                 </div>
                             </a>
-                            <a href="#" class="p-3 d-flex border-bottom">
-                                <div
-                                    class="drop-img cover-image"
-                                    data-image-src="/dashboard/assets/img/faces/2.jpg"
-                                >
-                                    <span class="avatar-status bg-teal"></span>
-                                </div>
-                                <div class="wd-90p">
-                                    <div class="d-flex">
-                                        <h5 class="mb-1 name">Jimmy Changa</h5>
-                                    </div>
-                                    <p class="mb-0 desc">
-                                        All set ! Now, time to get to you
-                                        now......
-                                    </p>
-                                    <p
-                                        class="time mb-0 text-left float-right mr-2 mt-2"
-                                    >
-                                        Mar 06 01:12 AM
-                                    </p>
-                                </div>
-                            </a>
-                            <a href="#" class="p-3 d-flex border-bottom">
-                                <div
-                                    class="drop-img cover-image"
-                                    data-image-src="/dashboard/assets/img/faces/9.jpg"
-                                >
-                                    <span class="avatar-status bg-teal"></span>
-                                </div>
-                                <div class="wd-90p">
-                                    <div class="d-flex">
-                                        <h5 class="mb-1 name">
-                                            Graham Cracker
-                                        </h5>
-                                    </div>
-                                    <p class="mb-0 desc">
-                                        Are you ready to pickup your Delivery...
-                                    </p>
-                                    <p
-                                        class="time mb-0 text-left float-right mr-2 mt-2"
-                                    >
-                                        Feb 25 10:35 AM
-                                    </p>
-                                </div>
-                            </a>
-                            <a href="#" class="p-3 d-flex border-bottom">
-                                <div
-                                    class="drop-img cover-image"
-                                    data-image-src="/dashboard/assets/img/faces/12.jpg"
-                                >
-                                    <span class="avatar-status bg-teal"></span>
-                                </div>
-                                <div class="wd-90p">
-                                    <div class="d-flex">
-                                        <h5 class="mb-1 name">
-                                            Donatella Nobatti
-                                        </h5>
-                                    </div>
-                                    <p class="mb-0 desc">
-                                        Here are some products ...
-                                    </p>
-                                    <p
-                                        class="time mb-0 text-left float-right mr-2 mt-2"
-                                    >
-                                        Feb 12 05:12 PM
-                                    </p>
-                                </div>
-                            </a>
-                            <a href="#" class="p-3 d-flex border-bottom">
-                                <div
-                                    class="drop-img cover-image"
-                                    data-image-src="/dashboard/assets/img/faces/5.jpg"
-                                >
-                                    <span class="avatar-status bg-teal"></span>
-                                </div>
-                                <div class="wd-90p">
-                                    <div class="d-flex">
-                                        <h5 class="mb-1 name">Anne Fibbiyon</h5>
-                                    </div>
-                                    <p class="mb-0 desc">
-                                        I'm sorry but i'm not sure how...
-                                    </p>
-                                    <p
-                                        class="time mb-0 text-left float-right mr-2 mt-2"
-                                    >
-                                        Jan 29 03:16 PM
-                                    </p>
-                                </div>
-                            </a>
                         </div>
                         <div class="text-center dropdown-footer">
                             <a href="text-center">VIEW ALL</a>
@@ -347,66 +175,6 @@
 												<div class="mr-3">
 													<h5 class="notification-label mb-1">New files available</h5>
 													<div class="notification-subtext">10 hour ago</div>
-												</div>
-												<div class="mr-auto" >
-													<i class="las la-angle-left text-left text-muted"></i>
-												</div>
-											</a>
-											<a class="d-flex p-3" href="#">
-												<div class="notifyimg bg-purple">
-													<i class="la la-gem text-white"></i>
-												</div>
-												<div class="mr-3">
-													<h5 class="notification-label mb-1">Updates Available</h5>
-													<div class="notification-subtext">2 days ago</div>
-												</div>
-												<div class="mr-auto" >
-													<i class="las la-angle-left text-left text-muted"></i>
-												</div>
-											</a>
-											<a class="d-flex p-3 border-bottom" href="#">
-												<div class="notifyimg bg-success">
-													<i class="la la-shopping-basket text-white"></i>
-												</div>
-												<div class="mr-3">
-													<h5 class="notification-label mb-1">New Order Received</h5>
-													<div class="notification-subtext">1 hour ago</div>
-												</div>
-												<div class="mr-auto" >
-													<i class="las la-angle-left text-left text-muted"></i>
-												</div>
-											</a>
-											<a class="d-flex p-3 border-bottom" href="#">
-												<div class="notifyimg bg-warning">
-													<i class="la la-envelope-open text-white"></i>
-												</div>
-												<div class="mr-3">
-													<h5 class="notification-label mb-1">New review received</h5>
-													<div class="notification-subtext">1 day ago</div>
-												</div>
-												<div class="mr-auto" >
-													<i class="las la-angle-left text-left text-muted"></i>
-												</div>
-											</a>
-											<a class="d-flex p-3 border-bottom" href="#">
-												<div class="notifyimg bg-danger">
-													<i class="la la-user-check text-white"></i>
-												</div>
-												<div class="mr-3">
-													<h5 class="notification-label mb-1">22 verified registrations</h5>
-													<div class="notification-subtext">2 hour ago</div>
-												</div>
-												<div class="mr-auto" >
-													<i class="las la-angle-left text-left text-muted"></i>
-												</div>
-											</a>
-											<a class="d-flex p-3 border-bottom" href="#">
-												<div class="notifyimg bg-primary">
-													<i class="la la-check-circle text-white"></i>
-												</div>
-												<div class="mr-3">
-													<h5 class="notification-label mb-1">Project has been approved</h5>
-													<div class="notification-subtext">4 hour ago</div>
 												</div>
 												<div class="mr-auto" >
 													<i class="las la-angle-left text-left text-muted"></i>
@@ -472,9 +240,8 @@
                             ><i class="bx bx-slider-alt"></i> Account
                             Settings</a
                         >
-                        <a class="dropdown-item" href="page-signin.html"
-                            ><i class="bx bx-log-out"></i> Sign Out</a
-                        >
+                        <button @click="logout" class="btn btn-danger">Logout</button>
+
                     </div>
                 </div>
             </div>
@@ -483,8 +250,24 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+    methods: {
+        async logout() {
+            try {
+                axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('auth_token')}`;
+                await axios.post("/api/v1/logout");
 
+                // Clear token from localStorage
+                localStorage.removeItem("auth_token");
+
+                // Redirect to login page
+                this.$router.push("/login");
+            } catch (err) {
+                console.error("Logout failed:", err);
+            }
+        },
+    },
 };
 </script>
 

@@ -98,8 +98,8 @@ import axios from "axios";
 export default {
     data() {
         return {
-            email: "",
-            password: "",
+            email: "admin@admin.com",
+            password: "12345678",
             loading: false,
             error: null,
         };

@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', [AdminAuthController::class, 'store']);
+Route::post('/logout', [AdminAuthController::class, 'logout'])->middleware('auth:sanctum');
 
