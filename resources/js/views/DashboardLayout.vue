@@ -14,6 +14,7 @@
             <div class="main-header sticky side-header nav nav-item">
                 <Header />
             </div>
+            <div class="jumps-prevent" style="padding-top: 63px;"></div>
 
             <!-- Page Content -->
             <div class="container-fluid">
@@ -61,10 +62,6 @@ export default {
     },
 };
 </script>
-
-
-
-
 
 <style>
 /* Include styles specific to this component here if needed */
