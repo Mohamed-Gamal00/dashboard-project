@@ -105,29 +105,34 @@ export default {
         };
     },
     methods: {
-        async login() {
-            this.loading = true;
-            this.error = null;
-            try {
-                const response = await axios.post("/api/v1/login", {
-                    email: this.email,
-                    password: this.password,
-                });
+    async login() {
+        this.loading = true;
+        this.error = null;
+        try {
+            const response = await axios.post("/api/v1/login", {
+                email: this.email,
+                password: this.password,
+            });
 
-                // Save the token (localStorage or Vuex)
-                const token = response.data.token;
-                localStorage.setItem("auth_token", token);
+            // Extract token and user data
+            const token = response.data.token;
+            const user = response.data.admin;
 
-                // Redirect to the admin dashboard
-                this.$router.push("/");
-            } catch (err) {
-                this.error =
-                    err.response?.data?.message ||
-                    "An error occurred. Please try again.";
-            } finally {
-                this.loading = false;
-            }
-        },
+            // Save token and user in Vuex (also persists in localStorage)
+            this.$store.dispatch("saveAuthToken", token);
+            this.$store.dispatch("saveUser", user);
+
+            // Redirect to the admin dashboard
+            this.$router.push("/");
+        } catch (err) {
+            this.error =
+                err.response?.data?.message ||
+                "An error occurred. Please try again.";
+        } finally {
+            this.loading = false;
+        }
     },
+},
+
 };
 </script>

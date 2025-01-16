@@ -69,6 +69,7 @@
                     ><span class="badge badge-success side-badge">1</span></a
                 >
             </li>
+
             <li class="side-item side-item-category">General</li>
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#"
