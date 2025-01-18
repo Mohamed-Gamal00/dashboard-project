@@ -85,13 +85,18 @@
                         />
                         <path
                             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.05-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 9.93V19h2.87c-.87.48-1.84.8-2.87.93zM18.24 17H13v-1h5.92c-.2.35-.43.69-.68 1zm1.5-3H13v-1h6.93c-.04.34-.11.67-.19 1z"
-                        /></svg><span class="side-menu__label">Apps</span
+                        />
+                    </svg>
+
+                    <span class="side-menu__label">Apps</span
                     ><i class="angle fe fe-chevron-down"></i
                 ></a>
                 <ul class="slide-menu">
-                    <router-link class="slide-item" to="/home">
-                        Home
-                    </router-link>
+                    <li>
+                        <router-link class="slide-item" to="/home">
+                            Home
+                        </router-link>
+                    </li>
                     <li><a class="slide-item" href="cards.html">Cards</a></li>
                     <li>
                         <a class="slide-item" href="darggablecards.html"
@@ -129,6 +134,33 @@
                     </li>
                 </ul>
             </li>
+
+
+				<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Elements</span><i class="angle fe fe-chevron-down"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item" href="alerts.html">Alerts</a></li>
+								<li><a class="slide-item" href="avatar.html">Avatar</a></li>
+								<li><a class="slide-item" href="breadcrumbs.html">Breadcrumbs</a></li>
+								<li><a class="slide-item" href="buttons.html">Buttons</a></li>
+								<li><a class="slide-item" href="badge.html">Badge</a></li>
+								<li><a class="slide-item" href="dropdown.html">Dropdown</a></li>
+								<li><a class="slide-item" href="thumbnails.html">Thumbnails</a></li>
+								<li><a class="slide-item" href="list-group.html">List Group</a></li>
+								<li><a class="slide-item" href="navigation.html">Navigation</a></li>
+								<li><a class="slide-item" href="images.html">Images</a></li>
+								<li><a class="slide-item" href="pagination.html">Pagination</a></li>
+								<li><a class="slide-item" href="popover.html">Popover</a></li>
+								<li><a class="slide-item" href="progress.html">Progress</a></li>
+								<li><a class="slide-item" href="spinners.html">Spinners</a></li>
+								<li><a class="slide-item" href="media-object.html">Media Object</a></li>
+								<li><a class="slide-item" href="typography.html">Typography</a></li>
+								<li><a class="slide-item" href="tooltip.html">Tooltip</a></li>
+								<li><a class="slide-item" href="toast.html">Toast</a></li>
+								<li><a class="slide-item" href="tags.html">Tags</a></li>
+								<li><a class="slide-item" href="tabs.html">Tabs</a></li>
+							</ul>
+						</li>
         </ul>
     </div>
 </template>
