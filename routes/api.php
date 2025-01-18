@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('/logout', [AdminAuthController::class, 'logout']);
+    Route::post('/changePassword', [AdminAuthController::class, 'changePassword']);
+    
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 
-Route::post('/login', [AdminAuthController::class, 'store']);
-Route::post('/logout', [AdminAuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('/login', [AdminAuthController::class, 'login']);
