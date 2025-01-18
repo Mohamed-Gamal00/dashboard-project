@@ -2,8 +2,10 @@ import { createStore } from "vuex";
 
 export default createStore({
     state: {
-        authToken: null, // Store auth token
-        user: null, // Store user data
+        authToken: localStorage.getItem("auth_token") || null,
+        user: localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user"))
+            : null,
         name: "mohamed gamal",
         title: "back end",
         products: "",
@@ -12,9 +14,9 @@ export default createStore({
     // ممكن فيها ارجع الستيت بس او ارجع الستيت معمول عليها عملية حسابية
     // this.$store.getters.getNameWithTitle  دي الطريقة اللي بنده عليها في الكومبوننت بتاعي
     getters: {
-        getNameWithTitle(state) {
+        getUser(state) {
             // بمرر ارجيومنت اللي هو اللي استيت اللي هعمل عليه العملية
-            return state.name + "(" + state.title + ")";
+            return state.user
         },
     },
 
@@ -26,6 +28,7 @@ export default createStore({
         },
         setUser(state, user) {
             state.user = user; // Set user data
+            console.log(user);
         },
         clearAuth(state) {
             state.authToken = null; // Clear auth token

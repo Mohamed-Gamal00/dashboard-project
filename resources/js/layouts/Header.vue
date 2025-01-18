@@ -187,8 +187,8 @@
                                     />
                                 </div>
                                 <div class="mr-3 my-auto">
-                                    <h6>Petey Cruiser</h6>
-                                    <span>Premium Member</span>
+                                    <h6>{{this.$store.getters.getUser.name}}</h6>
+                                    <span>admin</span>
                                 </div>
                             </div>
                         </div>
