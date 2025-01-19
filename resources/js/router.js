@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // Import your components
 import Home from "./views/home/Home.vue";
-import ExampleComponent from "./views/Error404.vue";
+import Error404 from "./views/Error404.vue";
 import DashboardLayout from "./views/DashboardLayout.vue";
 import DashboardHome from "./views/home/DashboardHome.vue";
 import Login from "./views/auth/Login.vue";
@@ -35,7 +35,7 @@ const routes = [
 
     {
         path: "/:pathMatch(.*)*",
-        component: ExampleComponent,
+        component: Error404,
     },
 ];
 

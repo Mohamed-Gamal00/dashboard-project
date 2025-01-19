@@ -10,6 +10,11 @@ import axios from "axios";
 window.axios = axios;
 axios.defaults.withCredentials = true;
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+const token = localStorage.getItem("auth_token");
+if (token) {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+}
+axios.defaults.baseURL = "http://127.0.0.1:8000"; // Update this with your API base URL
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

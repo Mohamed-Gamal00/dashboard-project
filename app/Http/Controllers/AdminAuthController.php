@@ -53,21 +53,33 @@ class AdminAuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
+
+        // Attempt to find the admin by email
         $admin = Admin::where('email', $request->email)->first();
-        if ($admin) {
 
-            if ($admin && Hash::check($request->password, $admin->password)) {
-                $token = $admin->createToken('auth_token')->plainTextToken;
-                $data = [
-                    'token' => $token,
-                ];
-
-                return ApiResponse::sendResponse(200, 'Login Successfully', $data)->cookie('auth_token', $token, 60 * 24, null, null, true, true);
-            }
-
-            return ApiResponse::sendResponse(401, 'Login Failed', []);
+        // If admin does not exist, return an error
+        if (!$admin) {
+            return ApiResponse::sendResponse(404, 'Admin not found', []);
         }
+
+        // Check if the provided password matches the hashed password
+        if (!Hash::check($request->password, $admin->password)) {
+            return ApiResponse::sendResponse(401, 'Invalid email or password', []);
+        }
+
+        // Generate a Sanctum token
+        $token = $admin->createToken('auth_token')->plainTextToken;
+
+        // Return success response with token and user details
+        return ApiResponse::sendResponse(200, 'Login Successfully', [
+            'token' => $token,
+            'admin' => [
+                'name' => $admin->name,
+                'email' => $admin->email,
+            ],
+        ])->cookie('auth_token', $token, 60 * 24, null, null, true, true);
     }
+
 
     public function logout(Request $request)
     {

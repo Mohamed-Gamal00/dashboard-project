@@ -25,12 +25,12 @@ class DashboardController extends Controller
         $mainCurrency = DB::table('currencies')->select('name_ar')->where('default_currency', true)->first();
 
         $data = [
-            $productsCount,
-            $ordersCount,
-            $usersCount,
-            $messagesCount,
-            $adminsCount,
-            $mainCurrency
+            "productsCount"=>$productsCount,
+            "ordersCount" => $ordersCount,
+            "usersCount" => $usersCount,
+            "messagesCount" => $messagesCount,
+            "adminsCount" => $adminsCount,
+            "mainCurrency" => $mainCurrency
         ];
         return ApiResponse::sendResponse(200, 'Data Retrieved Successfuly', $data);
     }

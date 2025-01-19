@@ -104,30 +104,27 @@ export default {
             error: null,
         };
     },
-    methods: {
+methods: {
     async login() {
         this.loading = true;
         this.error = null;
+
         try {
             const response = await axios.post("/api/v1/login", {
                 email: this.email,
                 password: this.password,
             });
 
-            // Extract token and user data
-            const token = response.data.token;
-            const user = response.data.admin;
+            const { token, admin } = response.data.data;
 
-            // Save token and user in Vuex (also persists in localStorage)
+            // Save token and user data
             this.$store.dispatch("saveAuthToken", token);
-            this.$store.dispatch("saveUser", user);
+            this.$store.dispatch("saveUser", admin);
 
-            // Redirect to the admin dashboard
+            // Redirect to the dashboard
             this.$router.push("/");
         } catch (err) {
-            this.error =
-                err.response?.data?.message ||
-                "An error occurred. Please try again.";
+            this.error = err.response?.data?.message || "Login failed.";
         } finally {
             this.loading = false;
         }

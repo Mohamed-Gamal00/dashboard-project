@@ -47,7 +47,6 @@
             </div>
         </div>
         <div class="main-header-right">
-
             <div class="nav nav-item navbar-nav-right ml-auto">
                 <div class="nav-link" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form" role="search">
@@ -172,7 +171,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="dropdown main-profile-menu nav nav-item nav-link" >
+                <div class="dropdown main-profile-menu nav nav-item nav-link">
                     <a class="profile-user d-flex" href=""
                         ><img alt="" src="/dashboard/assets/img/faces/6.jpg"
                     /></a>
@@ -187,7 +186,9 @@
                                     />
                                 </div>
                                 <div class="mr-3 my-auto">
-                                    <h6>{{this.$store.getters.getUser.name}}</h6>
+                                    <h6>
+                                        {{ this.$store.getters.getUser.name }}
+                                    </h6>
                                     <span>admin</span>
                                 </div>
                             </div>
@@ -224,9 +225,6 @@ export default {
     methods: {
         async logout() {
             try {
-                axios.defaults.headers.common[
-                    "Authorization"
-                ] = `Bearer ${localStorage.getItem("auth_token")}`;
                 await axios.post("/api/v1/logout");
 
                 // Clear token from localStorage

@@ -2,10 +2,8 @@ import { createStore } from "vuex";
 
 export default createStore({
     state: {
-        authToken: localStorage.getItem("auth_token") || null,
-        user: localStorage.getItem("user")
-            ? JSON.parse(localStorage.getItem("user"))
-            : null,
+        authToken: '',
+        user: '',
         name: "mohamed gamal",
         title: "back end",
         products: "",
