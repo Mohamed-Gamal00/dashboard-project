@@ -7,6 +7,8 @@
         /> -->
         <h1>Welcome to the Dashboard</h1>
         <p>This is the main dashboard page.</p>
+        <Alert type="info" message="This message will disappear in 5 seconds." :timeout="5000" />
+
         <div v-if="loading">Loading...</div>
         <div v-if="error" class="error">{{ error }}</div>
         <div v-if="dashboardData" class="row row-sm">
@@ -24,7 +26,7 @@
                                     <h4
                                         class="tx-20 font-weight-bold mb-1 text-white"
                                     >
-                                        {{ dashboardData.ordersCount || '0' }}
+                                        {{ dashboardData.ordersCount || "0" }}
                                     </h4>
                                     <p class="mb-0 tx-12 text-white op-7">
                                         Compared to last week
@@ -45,9 +47,7 @@
                 <div class="card overflow-hidden sales-card bg-danger-gradient">
                     <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                         <div class="">
-                            <h6 class="mb-3 tx-12 text-white">
-                                productsCount
-                            </h6>
+                            <h6 class="mb-3 tx-12 text-white">productsCount</h6>
                         </div>
                         <div class="pb-0 mt-0">
                             <div class="d-flex">
@@ -55,7 +55,7 @@
                                     <h4
                                         class="tx-20 font-weight-bold mb-1 text-white"
                                     >
-                                        {{ dashboardData.productsCount || '0' }}
+                                        {{ dashboardData.productsCount || "0" }}
                                     </h4>
                                     <p class="mb-0 tx-12 text-white op-7">
                                         Compared to last week
@@ -80,9 +80,7 @@
                 >
                     <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                         <div class="">
-                            <h6 class="mb-3 tx-12 text-white">
-                                usersCount
-                            </h6>
+                            <h6 class="mb-3 tx-12 text-white">usersCount</h6>
                         </div>
                         <div class="pb-0 mt-0">
                             <div class="d-flex">
@@ -90,7 +88,7 @@
                                     <h4
                                         class="tx-20 font-weight-bold mb-1 text-white"
                                     >
-                                        {{ dashboardData.usersCount || '0' }}
+                                        {{ dashboardData.usersCount || "0" }}
                                     </h4>
                                     <p class="mb-0 tx-12 text-white op-7">
                                         Compared to last week
@@ -121,7 +119,7 @@
                                     <h4
                                         class="tx-20 font-weight-bold mb-1 text-white"
                                     >
-                                        {{ dashboardData.messagesCount || '0' }}
+                                        {{ dashboardData.messagesCount || "0" }}
                                     </h4>
                                     <p class="mb-0 tx-12 text-white op-7">
                                         Compared to last week
@@ -161,9 +159,7 @@ export default {
             this.loading = true;
             this.error = null;
             try {
-                const response = await axios.get(
-                    "/api/v1/dashboard"
-                );
+                const response = await axios.get("http://127.0.0.1:8000/api/v1/dashboard");
                 this.dashboardData = response.data.data; // Assuming the data is under `data`
             } catch (err) {
                 this.error =
@@ -174,7 +170,7 @@ export default {
             }
         },
     },
-    mounted() {
+    created() {
         this.fetchDashboardData();
     },
 };

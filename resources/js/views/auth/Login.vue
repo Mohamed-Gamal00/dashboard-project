@@ -104,32 +104,35 @@ export default {
             error: null,
         };
     },
-methods: {
-    async login() {
-        this.loading = true;
-        this.error = null;
+    methods: {
+        async login() {
+            this.loading = true;
+            this.error = null;
 
-        try {
-            const response = await axios.post("/api/v1/login", {
-                email: this.email,
-                password: this.password,
-            });
+            try {
+                const response = await axios.post("/api/v1/login", {
+                    email: this.email,
+                    password: this.password,
+                });
 
-            const { token, admin } = response.data.data;
+                const { token, admin } = response.data.data;
 
-            // Save token and user data
-            this.$store.dispatch("saveAuthToken", token);
-            this.$store.dispatch("saveUser", admin);
+                // Save token and user data
+                this.$store.dispatch("saveAuthToken", token);
+                this.$store.dispatch("saveUser", admin);
 
-            // Redirect to the dashboard
-            this.$router.push("/");
-        } catch (err) {
-            this.error = err.response?.data?.message || "Login failed.";
-        } finally {
-            this.loading = false;
-        }
+                axios.defaults.headers.common[
+                    "Authorization"
+                ] = `Bearer ${token}`;
+                
+                // Redirect to the dashboard
+                this.$router.push("/");
+            } catch (err) {
+                this.error = err.response?.data?.message || "Login failed.";
+            } finally {
+                this.loading = false;
+            }
+        },
     },
-},
-
 };
 </script>

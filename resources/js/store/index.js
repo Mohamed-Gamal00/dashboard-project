@@ -26,7 +26,6 @@ export default createStore({
         },
         setUser(state, user) {
             state.user = user; // Set user data
-            console.log(user);
         },
         clearAuth(state) {
             state.authToken = null; // Clear auth token
