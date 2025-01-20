@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
+import CompanyModule from "./GetCompany";
 
 export default createStore({
     state: {
-        authToken: '',
-        user: '',
+        authToken: "",
+        user: "",
         name: "mohamed gamal",
         title: "back end",
         products: "",
@@ -14,7 +15,7 @@ export default createStore({
     getters: {
         getUser(state) {
             // بمرر ارجيومنت اللي هو اللي استيت اللي هعمل عليه العملية
-            return state.user
+            return state.user;
         },
     },
 
@@ -58,13 +59,10 @@ export default createStore({
                     context.commit("getProducts", data.products);
                 });
         },
+
     },
-    // دي المكان اللي ههندل منه الفايلز اللي هعملها خارج الاندكس بنظم من خلاله الفايلز الخارجية
-    /*
-        store/getProducts.js
-        import name_of_file from "@/store/getProducts"
-    */
-    // modules: {
-    //     name_of_file,
-    // },
+
+    modules: {
+        CompanyModule,
+    },
 });

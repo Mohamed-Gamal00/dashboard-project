@@ -33,12 +33,11 @@ class CompanyRepository implements CompanyInterface
     return $this->company->findOrFail($id);
   }
 
-  public function update($id, $data)
-  {
-    return $data;
-    $company = $this->company->findOrFail($id);
-    return $company->update($data);
-  }
+public function update($id, $data)
+{
+    $company = Company::findOrFail($id); // Fetch the company by ID
+    return $company->update($data); // Update the company with new data
+}
 
   public function delete($id)
   {

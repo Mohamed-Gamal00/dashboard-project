@@ -100,13 +100,13 @@ class CompaniesController extends Controller
         // return $data;
 
         // Update the company
-         $this->companyRepo->update($id, $data);
+        $this->companyRepo->update($id, $data);
 
         // // Return the updated company data
-        // return response()->json([
-        //     'message' => 'update success',
-        //     // 'data' => $company
-        // ]);
+        return response()->json([
+            'message' => 'update success',
+            'data' => $data
+        ]);
     }
 
     /**

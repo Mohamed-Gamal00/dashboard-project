@@ -6,6 +6,7 @@ import Error404 from "./views/Error404.vue";
 import DashboardLayout from "./views/DashboardLayout.vue";
 import DashboardHome from "./views/home/DashboardHome.vue";
 import Login from "./views/auth/Login.vue";
+import Company from "./views/companies/Company.vue";
 
 const routes = [
     {
@@ -22,6 +23,12 @@ const routes = [
                 path: "/home",
                 name: "Home",
                 component: Home,
+                meta: { requiresAuth: true },
+            },
+            {
+                path: "/company",
+                name: "company",
+                component: Company,
                 meta: { requiresAuth: true },
             },
         ],

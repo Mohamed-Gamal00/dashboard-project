@@ -41,7 +41,7 @@
                 </div>
                 <div class="user-info">
                     <h4 class="font-weight-semibold mt-3 mb-0">
-                        {{this.$store.getters.getUser.name}}
+                        {{ this.$store.getters.getUser.name }}
                     </h4>
                     <span class="mb-0 text-muted">admin</span>
                 </div>
@@ -97,6 +97,11 @@
                             Home
                         </router-link>
                     </li>
+                    <li>
+                        <router-link class="slide-item" to="/company">
+                            Company
+                        </router-link>
+                    </li>
                     <li><a class="slide-item" href="cards.html">Cards</a></li>
                     <li>
                         <a class="slide-item" href="darggablecards.html"
@@ -138,8 +143,6 @@
     </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style></style>
