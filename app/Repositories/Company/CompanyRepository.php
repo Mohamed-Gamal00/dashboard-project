@@ -35,6 +35,7 @@ class CompanyRepository implements CompanyInterface
 
   public function update($id, $data)
   {
+    return $data;
     $company = $this->company->findOrFail($id);
     return $company->update($data);
   }
