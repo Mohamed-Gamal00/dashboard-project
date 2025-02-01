@@ -1,23 +1,85 @@
 <template>
     <div>
-        <h1>Company Page</h1>
+        <Breadcrumb
+            :breadcrumbs="[
+                { label: 'الرئيسية', route: '/' },
+                { label: 'الشركات', route: '' }, // No route for the last item
+            ]"
+            :is_AddButton_exist="true"
+            addButtonRoute="companies.create"
+        />
         <div v-if="loading">Loading...</div>
         <div v-else-if="error" class="error">{{ error }}</div>
-        <ul v-else>
-            <!-- Render company data dynamically -->
-            <li v-for="(company, index) in companyData.data" :key="index">
-                <!-- {{ company.name }} -->
-                {{ company.name }}
-            </li>
-        </ul>
+
+        <div v-else class="row row-sm">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">STRIPED ROWS</h4>
+                            <i class="mdi mdi-dots-horizontal text-gray"></i>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">
+                            Example of Valex Striped Rows..
+                            <a href="">Learn more</a>
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped mg-b-0 text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Controle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(company, index) in companyData" :key="index">
+                                        <th scope="row">{{ index }}</th>
+                                        <td class="align-middle">
+                                            <img height="40" :src="company.image" :alt="company.name" />
+                                        </td>
+                                        <td class="align-middle">
+                                            {{ company.name }}
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="d-flex my-xl-auto right-content">
+                                                <div class="pr-1 mb-3 mb-xl-0">
+                                                    <router-link :to="{ name: 'companies.edit', params: { id: company.id } }" class="content-title mb-0 my-auto text-primary">
+                                                        <button type="button" class="btn btn-primary btn-icon ml-2">
+                                                            <i class="mdi mdi-pen"></i>
+                                                        </button>
+                                                    </router-link>
+                                                </div>
+                                                <div class="pr-1 mb-3 mb-xl-0">
+                                                    <button type="button" class="btn btn-danger btn-icon ml-2">
+                                                        <i class="mdi mdi-delete"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import Breadcrumb from "../../components/Breadcrumb.vue";
 import { mapState } from "vuex";
 
 export default {
     name: "Companies",
+    components: {
+        Breadcrumb,
+    },
     data() {
         return {
             loading: true, // Track loading state
@@ -27,17 +89,17 @@ export default {
     computed: {
         // Map state data directly from Vuex
         ...mapState({
-            companyData: (state) => state.CompanyModule.company,
+            companyData: (state) => state.CompanyModule.company.records,
         }),
     },
     async mounted() {
         try {
             // Dispatch action to fetch company data
             await this.$store.dispatch("geCompany");
-            console.log(
-                "Vuex State (Company Data):",
-                this.$store.state.CompanyModule.company
-            );
+            // console.log(
+            //     "Vuex State (Company Data):",
+            //     this.$store.state.CompanyModule.company.records
+            // );
         } catch (err) {
             // Handle errors
             this.error = "Failed to load company data.";

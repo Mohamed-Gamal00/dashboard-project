@@ -7,43 +7,25 @@ import DashboardLayout from "./views/DashboardLayout.vue";
 import DashboardHome from "./views/home/DashboardHome.vue";
 import Login from "./views/auth/Login.vue";
 import Company from "./views/companies/Company.vue";
+import CreateCompany from "./views/companies/CreateCompany.vue";
+import EditCompany from "./views/companies/EditCompany.vue";
 
 const routes = [
     {
         path: "/",
         component: DashboardLayout,
         children: [
-            {
-                path: "",
-                name: "DashboardHome",
-                component: DashboardHome, // A child component for the dashboard's main content
-                meta: { requiresAuth: true },
-            },
-            {
-                path: "/home",
-                name: "Home",
-                component: Home,
-                meta: { requiresAuth: true },
-            },
-            {
-                path: "/company",
-                name: "company",
-                component: Company,
-                meta: { requiresAuth: true },
-            },
+            { path: "", name: "DashboardHome", component: DashboardHome },
+            { path: "/home", name: "Home", component: Home, meta: { requiresAuth: true } },
+            { path: "/companies", name: "companies.index", component: Company, meta: { requiresAuth: true } },
+            { path: "/companies/create", name: "companies.create", component: CreateCompany, meta: { requiresAuth: true } },
+            { path: "/companies/:id/edit", name: "companies.edit", component: EditCompany, meta: { requiresAuth: true } },
         ],
     },
 
-    {
-        path: "/login",
-        name: "login",
-        component: Login,
-    },
+    { path: "/login", name: "login", component: Login },
 
-    {
-        path: "/:pathMatch(.*)*",
-        component: Error404,
-    },
+    { path: "/:pathMatch(.*)*", component: Error404 },
 ];
 
 const router = createRouter({
@@ -53,7 +35,7 @@ const router = createRouter({
 
 // Global route guard to check authentication
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('auth_token'); // Check if user is authenticated (example: JWT token in localStorage)
+    const isAuthenticated = localStorage.getItem("auth_token"); // Check if user is authenticated (example: JWT token in localStorage)
     if (to.name === "login" && isAuthenticated) {
         // Redirect authenticated user trying to access login page
         next({ name: "Home" });

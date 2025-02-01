@@ -98,7 +98,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link class="slide-item" to="/company">
+                        <router-link class="slide-item" to="/companies">
                             Company
                         </router-link>
                     </li>

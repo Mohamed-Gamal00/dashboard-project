@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Helper\Helper;
+use App\Helper\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Company\CompanyRequest;
+use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use App\Repositories\Company\CompanyRepository;
 use Illuminate\Http\Request;
@@ -32,11 +34,26 @@ class CompaniesController extends Controller
 
         // Fetch companies
         $companies = $this->companyRepo->getMainCompany();
-
-        // Return JSON response
-        return response()->json([
-            'data' => $companies
-        ]);
+        if (count($companies) > 0) {
+            if ($companies->total() > $companies->perPage()) {
+                $data = [
+                    'records' => CompanyResource::collection($companies),
+                    'pagination links' => [
+                        'current page' => $companies->currentPage(),
+                        'per page' => $companies->perPage(),
+                        'total' => $companies->total(),
+                        'links' => [
+                            'first' => $companies->url(1),
+                            'last' => $companies->url($companies->lastPage())
+                        ],
+                    ],
+                ];
+            } else {
+                $data = CompanyResource::collection($companies);
+            }
+            return ApiResponse::sendResponse(200, 'Data Retrieved Successfully', $data);
+        }
+        return ApiResponse::sendResponse(200, 'No Data Available', []);
     }
 
     /**
