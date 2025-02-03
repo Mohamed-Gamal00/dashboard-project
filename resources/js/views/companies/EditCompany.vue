@@ -4,6 +4,7 @@
             :breadcrumbs="[
                 { label: 'الرئيسية', route: '/' },
                 { label: 'الشركات', route: '/companies' }, // No route for the last item
+                { label: 'تعديل شركة', route: '' },
             ]"
             :is_AddButton_exist="true"
             addButtonRoute="companies.create"
