@@ -12,15 +12,20 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
         'email',
         'password',
+        'family_name',
+        'phone_number',
+        'address',
+        'image'
     ];
 
     /**
@@ -40,5 +45,61 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
+
+    /* new */
+
+
+
+    // public function verificationCode()
+    // {
+    //     return $this->hasOne(User_verfication::class, 'user_id', 'id');
+    // }
+
+    public function wishlistProducts()
+    {
+        return $this->belongsToMany(
+            Product::class,
+            'wishlist_products_user',
+            'user_id',
+            'product_id'
+        );
+    }
+
+    public function returnProducts()
+    {
+        return $this->belongsToMany(
+            Product::class,
+            'return_products',
+            'user_id',
+            'product_id'
+        );
+    }
+
+    // public function addresses(): HasMany
+    // {
+    //     return $this->hasMany(UserAddress::class, 'user_id', 'id');
+    // }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
+    }
+
+    // public function comments()
+    // {
+    //     return $this->hasMany(Comment::class, 'user_id', 'id');
+    // }
+
+    public function getImageUrlAttribute()
+    {
+        if (!$this->image) {
+            return asset('front/images/user-image.jpg');
+        }
+
+
+        return asset('storage/' . $this->image);
+    }
 }
+

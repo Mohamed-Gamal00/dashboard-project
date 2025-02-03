@@ -41,9 +41,9 @@
                 </div>
                 <div class="user-info">
                     <h4 class="font-weight-semibold mt-3 mb-0">
-                        Petey Cruiser
+                        {{ this.$store.getters.getUser.name }}
                     </h4>
-                    <span class="mb-0 text-muted">Premium Member</span>
+                    <span class="mb-0 text-muted">admin</span>
                 </div>
             </div>
         </div>
@@ -69,7 +69,8 @@
                     ><span class="badge badge-success side-badge">1</span></a
                 >
             </li>
-            <li class="side-item side-item-category">General</li>
+
+            <li class="side-item side-item-category">WEB APPS</li>
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#"
                     ><svg
@@ -86,6 +87,7 @@
                             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.05-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 9.93V19h2.87c-.87.48-1.84.8-2.87.93zM18.24 17H13v-1h5.92c-.2.35-.43.69-.68 1zm1.5-3H13v-1h6.93c-.04.34-.11.67-.19 1z"
                         />
                     </svg>
+
                     <span class="side-menu__label">Apps</span
                     ><i class="angle fe fe-chevron-down"></i
                 ></a>
@@ -96,9 +98,44 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link class="slide-item" to="/about">
-                            About
+                        <router-link class="slide-item" to="/companies">
+                            Company
                         </router-link>
+                    </li>
+                    <li><a class="slide-item" href="cards.html">Cards</a></li>
+                    <li>
+                        <a class="slide-item" href="darggablecards.html"
+                            >Darggablecards</a
+                        >
+                    </li>
+                    <li>
+                        <a class="slide-item" href="rangeslider.html"
+                            >Range-slider</a
+                        >
+                    </li>
+                    <li>
+                        <a class="slide-item" href="calendar.html">Calendar</a>
+                    </li>
+                    <li>
+                        <a class="slide-item" href="contacts.html">Contacts</a>
+                    </li>
+                    <li>
+                        <a class="slide-item" href="image-compare.html"
+                            >Image-compare</a
+                        >
+                    </li>
+                    <li>
+                        <a class="slide-item" href="notification.html"
+                            >Notification</a
+                        >
+                    </li>
+                    <li>
+                        <a class="slide-item" href="widget-notification.html"
+                            >Widget-notification</a
+                        >
+                    </li>
+                    <li>
+                        <a class="slide-item" href="treeview.html">Treeview</a>
                     </li>
                 </ul>
             </li>
@@ -106,8 +143,6 @@
     </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style></style>
