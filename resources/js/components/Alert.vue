@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-    <div v-if="visible" :class="`alert alert-${type}`" role="alert">
+    <div v-if="visible" :class="`alert alert-${type} w-100 rounded`" role="alert">
         {{ message }}
     </div>
 </template>

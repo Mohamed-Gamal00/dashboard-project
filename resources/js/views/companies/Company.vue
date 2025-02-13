@@ -15,10 +15,6 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="card-title mg-b-0">STRIPED ROWS</h4>
-                            <i class="mdi mdi-dots-horizontal text-gray"></i>
-                        </div>
                         <p class="tx-12 tx-gray-500 mb-2">
                             Example of Valex Striped Rows..
                             <a href="">Learn more</a>
@@ -54,8 +50,9 @@
                                                     </router-link>
                                                 </div>
                                                 <div class="pr-1 mb-3 mb-xl-0">
-                                                    <button type="button" class="btn btn-danger btn-icon ml-2">
-                                                        <i class="mdi mdi-delete"></i>
+                                                    <button type="submit" @click="deleteCompany(company.id)" class="btn btn-danger btn-icon ml-2" :disabled="isDelete[company.id]">
+                                                        <span v-if="isDelete[company.id]"> <i class="mdi mdi-loading mdi-spin"></i></span>
+                                                        <span v-else><i class="mdi mdi-delete"></i></span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -84,6 +81,7 @@ export default {
         return {
             loading: true, // Track loading state
             error: null, // Track error state
+            isDelete: {},
         };
     },
     computed: {
@@ -108,6 +106,26 @@ export default {
             // Ensure loading is stopped
             this.loading = false;
         }
+    },
+
+    methods: {
+
+        async deleteCompany(companyId) {
+            // ✅ Set loading state for the specific company
+            this.isDelete = { ...this.isDelete, [companyId]: true };
+
+            try {
+                await axios.post(`/api/v1/companies/delete/${companyId}`);
+                alert("تم الحذف بنجاح!");
+                this.$store.dispatch("geCompany"); // Refresh the list after deletion
+            } catch (error) {
+                console.error(error);
+            } finally {
+                // ✅ Remove loading state for the specific company
+                const { [companyId]: _, ...newState } = this.isDelete;
+                this.isDelete = newState;
+            }
+        },
     },
 };
 </script>

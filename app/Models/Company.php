@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class Company extends Model
 {
@@ -17,7 +18,7 @@ class Company extends Model
     public function getImageUrlAttribute()
     {
         if (!$this->image) {
-            return asset('assets/images/company.jpg');
+            return asset('dashboard/assets/img/empty.jpg');
         }
         return asset('storage/' . $this->image);
     }
@@ -42,6 +43,4 @@ class Company extends Model
         }
         return $this->name_en;
     }
-
-
 }

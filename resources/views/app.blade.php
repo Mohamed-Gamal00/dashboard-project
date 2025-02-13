@@ -24,8 +24,8 @@
     <!--- Internal Morris css-->
     <link href="{{ asset('dashboard/assets/plugins/morris.js/morris.css') }}" rel="stylesheet" />
     <!--Internal Fileuploads js-->
-    {{-- <link href="{{ asset('dashboard/assets/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet" --}}
-    type="text/css" />
+    {{-- <link href="{{ asset('dashboard/assets/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet"
+    type="text/css" /> --}}
     <!--- Style css --->
     <link href="{{ asset('dashboard/assets/css-rtl/style.css') }}" rel="stylesheet" />
     <!--- Dark-mode css -->
@@ -59,12 +59,12 @@
     <!-- Moment js -->
     <script src="{{ asset('dashboard/assets/plugins/raphael/raphael.min.js') }}"></script>
     <!--Internal  Flot js-->
-    <script src="{{ asset('dashboard/assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
+    {{-- <script src="{{ asset('dashboard/assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('dashboard/assets/plugins/jquery.flot/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('dashboard/assets/plugins/jquery.flot/jquery.flot.resize.js') }}"></script>
     <script src="{{ asset('dashboard/assets/plugins/jquery.flot/jquery.flot.categories.js') }}"></script>
     <script src="{{ asset('dashboard/assets/js/dashboard.sampledata.js') }}"></script>
-    <script src="{{ asset('dashboard/assets/js/chart.flot.sampledata.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/js/chart.flot.sampledata.js') }}"></script> --}}
     <!-- Custom Scroll bar Js-->
     <script src="{{ asset('dashboard/assets/plugins/mscrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <!-- Rating js-->

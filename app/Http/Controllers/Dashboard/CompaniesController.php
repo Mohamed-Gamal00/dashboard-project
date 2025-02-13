@@ -84,10 +84,9 @@ class CompaniesController extends Controller
     {
         // Fetch the company by ID
         $company = $this->companyRepo->getById($id);
-
         // Return the company data
         return response()->json([
-            'data' => $company
+            'data' => new CompanyResource($company)
         ]);
     }
 

@@ -45,6 +45,12 @@ class CompanyRepository implements CompanyInterface
         if ($company->products->first()) {
             return back()->with('danger', 'يوجد منتجات لهذه الشركه');
         }
+
+        $image = $company->image;
+        // Delete the old image from storage
+        if ($image) {
+            Storage::disk('public')->delete($image);
+        }
         return $company->delete();
     }
 }

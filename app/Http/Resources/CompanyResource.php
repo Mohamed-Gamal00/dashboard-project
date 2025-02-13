@@ -17,9 +17,9 @@ class CompanyResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->getCurrentNameLangAttribute(),
-            'image' => url(Storage::url($this->image)),
-            // 'image' => asset('storage/'.$this->image),
+            'name' => $this->name,
+            'name_en' => $this->name_en,
+            'image' => url($this->imageUrl),
         ];
     }
 }
